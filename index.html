@@ -3,58 +3,44 @@
 
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport"
+    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <title>I am so lucky to write you in my life page</title>
 
-  <link type="text/css" rel="stylesheet" href="./index_files/default.css">
-  <script type="text/javascript" src="./index_files/jquery.min.js"></script>
-  <script type="text/javascript" src="./index_files/jscex.min.js"></script>
-  <script type="text/javascript" src="./index_files/jscex-parser.js"></script>
-  <script type="text/javascript" src="./index_files/jscex-jit.js"></script>
-  <script type="text/javascript" src="./index_files/jscex-builderbase.min.js"></script>
-  <script type="text/javascript" src="./index_files/jscex-async.min.js"></script>
-  <script type="text/javascript" src="./index_files/jscex-async-powerpack.min.js"></script>
-  <script type="text/javascript" src="./index_files/functions.js" charset="utf-8"></script>
-  <script type="text/javascript" src="./index_files/love.js" charset="utf-8"></script>
+  <link type="text/css" rel="stylesheet" href="./static/default.css">
+  <script type="text/javascript" src="./static/jquery.min.js"></script>
+  <script type="text/javascript" src="./static/jscex.min.js"></script>
+  <script type="text/javascript" src="./static/jscex-parser.js"></script>
+  <script type="text/javascript" src="./static/jscex-jit.js"></script>
+  <script type="text/javascript" src="./static/jscex-builderbase.min.js"></script>
+  <script type="text/javascript" src="./static/jscex-async.min.js"></script>
+  <script type="text/javascript" src="./static/jscex-async-powerpack.min.js"></script>
+  <script type="text/javascript" src="./static/functions.js" charset="utf-8"></script>
+  <script type="text/javascript" src="./static/love.js" charset="utf-8"></script>
   <style type="text/css">
     .STYLE1 {
       color: #666666
-    }
-    @media screen and (orientation:portrait) {
-      /*竖屏样式*/
-      body {
-        transform-origin: 0 0;
-        transform: rotateZ(90deg) translateY(-100%);
-      }
     }
   </style>
 </head>
 
 <body>
   <audio autoplay="autopaly" id="bgmusic">
-    <source src="/ydgqq.mp3" type="audio/mp3" />
+    <source src="./bgm.mp3" type="audio/mp3" />
   </audio>
   <div id="main">
     <div id="error">本页面采用HTML5编辑，目前您的浏览器无法显示，请换成谷歌浏览器。</div>
     <div id="wrap">
       <div id="text">
         <div id="code">
-          <span class="say">I am so lucky to write you in my life page</span><br>
-          <span class="say"> </span><br>
-          <span class="say">// 不经意的相识, 或许是缘分，或许是注定的。</span><br>
-          <span class="say"> </span><br>
-          <span class="say">// 以后不管会怎么样，我都会在。</span><br>
-          <span class="say"> </span><br>
-          <span class="say">// 就算全世界都抛弃你，记得还有我。</span><br>
-          <span class="say"> </span><br>
-          <span class="say">// 再累都不用害怕，因为你有我。</span><br>
-          <span class="say"> </span><br>
-          <span class="say">// 记得在你最需要的时候想起我。</span><br>
-          <span class="say"> </span><br>
-          <span class="say">// 我会一直陪着你。</span><br>
-          <span class="say"> </span><br>
-          <span class="say">// 我爱你。</span><br>
-          <span class="say"> </span><br>
+          <span class="say">I am so lucky to write you in my life page</span><br><br>
+          <span class="say">// 不经意的相识, 或许是缘分，或许是注定的。</span><br><br>
+          <span class="say">// 以后不管会怎么样，我都会在。</span><br><br>
+          <span class="say">// 就算全世界都抛弃你，记得还有我。</span><br><br>
+          <span class="say">// 再累都不用害怕，因为你有我。</span><br><br>
+          <span class="say">// 记得在你最需要的时候想起我。</span><br><br>
+          <span class="say">// 我会一直陪着你。</span><br><br>
+          <span class="say">// 我爱你。</span><br><br>
           <span class="say"><span class="space"></span> -- 张张 --</span>
         </div>
       </div>
@@ -64,14 +50,10 @@
       </div>
       <canvas id="canvas" width="1100" height="680"></canvas>
     </div>
-
   </div>
 
   <script>
-  </script>
-
-  <script>
-    $(function(){
+    $(function () {
       var canvas = $('#canvas');
 
       if (!canvas[0].getContext) {
@@ -207,6 +189,12 @@
         together.setSeconds(0);					//秒前一位
         together.setMilliseconds(0);				//秒第二位
 
+        var dayform = (new Date() - together) / 86400000;
+
+        if (Math.floor(dayform) === 100) {
+          $("#code").prepend('<span class="say">老婆，今天是我们相恋100天，以后还有那么多个100天值得纪念，希望你一直开心下去，彼此陪伴！相爱到老。</span><br><br>')
+        }
+
         $("#code").show().typewriter();
         $("#clock-box").fadeIn(500);
         while (true) {
@@ -216,14 +204,11 @@
       }));
 
       var runAsync = eval(Jscex.compile("async", function () {
-        // $('#bgmusic')[0].play();
         $await(seedAnimate());
         $await(growAnimate());
         $await(flowAnimate());
         $await(moveAnimate());
-        
         textAnimate().start();
-
         $await(jumpAnimate());
       }));
 

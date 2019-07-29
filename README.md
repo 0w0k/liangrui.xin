@@ -1,5 +1,3 @@
-# youxfans.github.io
-
 # 域名
 liangrui.xin
 
@@ -8,5 +6,3 @@ liangrui.xin
 
 # 在一起
 2019/05/20
-
-# ~
